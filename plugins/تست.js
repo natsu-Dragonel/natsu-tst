@@ -7,9 +7,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
               title: '*⌘──〘 *♥📃القوائم📃♥* 〙── ⌘*'
             },
             body: {
-              text: '*☺️💕يرجى عدم الاسبام في البوت💕☺️*
-
-                *⌘──〘 *♥📃القوائم📃♥* 〙── ⌘*'
+              text: '*⌘──〘 *♥يرجى عدم الاسبام♥* 〙── ⌘*'
             },
             nativeFlowMessage: {
               buttons: [
@@ -459,7 +457,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
                             header: 'للعبه بنك',
                             title: '.بنك',
                             description: '',
-                            id: '.بنك'
+                            id: '.البنك'
                           },
                           {
                             header: 'لمعرفه عدد الماسك',
@@ -492,8 +490,26 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
                             id: '.اعفاء'
                          },
                         {
-                            header: 'بدايه اوامر المطور',
-                            title: '.المطور',
+       header: 'لوضع شخص مشرف',
+                            title: '.ترقيه',
+                            description: '',
+                            id: '.ترقيه'
+                          },
+                          {
+                            header: 'للذكاء الاصطناعي',
+                            title: '.بوت',
+                            description: '',
+                            id: '.بوت'
+                          },
+                         {
+                            header: 'لاضافه لقبك في البوت',
+                            title: '.لقبني',
+                            description: '',
+                            id: '.لقبني'
+                         },
+                          {
+                            header: '👑بدايه اوامر المطور👑',
+                            title: '👑معلومات المطور👑',
                             description: '',
                             id: '.المطور'
                          },
