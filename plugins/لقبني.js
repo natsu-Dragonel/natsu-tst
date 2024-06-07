@@ -26,5 +26,9 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
 handler.help = ['لقبني'].map(v => v + ' <الاسم>')
 handler.tags = ['rg']
 handler.command = ['لقبني']
+handler.group = true;
+handler.admin = false;
+handler.botAdmin = false;
+handler.fail = null;
 
 export default handler
