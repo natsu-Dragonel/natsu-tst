@@ -590,7 +590,16 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
                     ]
                   }),
                   messageParamsJson: ''
-                }
+
+                },
+{
+              name: "quick_reply",
+              buttonParamsJson: '{"display_text":".المطور","id":"message"}'
+            },
+     {
+               name: "cta_url",
+               buttonParamsJson: '{"display_text":"🔥قـنـاتـي💕","url":"https://whatsapp.com/channel/0029VaZQ0FG4dTnQxihmuk01","merchant_url":"https://whatsapp.com/channel/0029VaZQ0FG4dTnQxihmuk01"}'
+               }
               ]
             }
           }
@@ -602,6 +611,6 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 
 handler.help = ['info']
 handler.tags = ['main']
-handler.command = ['تست']
+handler.command = ['المهام','مهام']
 
 export default handler
