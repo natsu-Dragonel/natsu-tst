@@ -506,6 +506,12 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
                             title: '.لقبني',
                             description: '',
                             id: '.لقبني'
+                          },
+                         {
+                            header: 'لحذف جميع الالقاب الموجوده',
+                            title: '.حذف_الالقاب',
+                            description: '',
+                            id: '.حذف_الالقاب'
                           }
                         ]
                       }
@@ -521,6 +527,10 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
      {
                name: "cta_url",
                buttonParamsJson: '{"display_text":"🔥قـنـاتـي💕","url":"https://whatsapp.com/channel/0029VaZQ0FG4dTnQxihmuk01","merchant_url":"https://whatsapp.com/channel/0029VaZQ0FG4dTnQxihmuk01"}'
+             },
+     { 
+                 name: "quick_reply",
+              buttonParamsJson: '{"display_text":".معلومات","id":"message"}'
                }
               ]
             }
