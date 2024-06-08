@@ -70,7 +70,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 
 handler.help = ['main'];
 handler.tags = ['group'];
-handler.command = ['𝛩𝐵𝐼𝑇𝛩'];
+handler.command = ['معلومات'];
 
 export default handler;
 
