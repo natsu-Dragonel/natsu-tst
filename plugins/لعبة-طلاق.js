@@ -13,4 +13,5 @@ handler.help = ['formarpareja']
 handler.tags = ['main', 'fun']
 handler.command = ['الطلاق','طلاق']
 handler.group = true
+handler.admin = true
 export default handler
