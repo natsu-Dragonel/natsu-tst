@@ -4,21 +4,21 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
         message: {
           interactiveMessage: {
             header: {
-              title: '  ✦ ───『 اوامر الالعاب و الاسئله 』─── ⚝'
+              title: '  ✦ ───『 التفعيلات 』─── ⚝'
             },
             body: {
-              text: '🛡️قـم بلظغط علي اللعبه الذي تريدها🛡️\n*👘اذا تريد العوده للاوامر اضغط علي زر الاوامر👘*\n╰──────────⳹'
+              text: 'حدد التفعيل المطلوب\n*مرحبا اليك قأىمه التفعيلات*\n╰──────────⳹'
             },
             nativeFlowMessage: {
               buttons: [
                 {
                   name: 'single_select',
                   buttonParamsJson: JSON.stringify({
-                    title: '✦🍷الـيـك قـائـمـه الـالـعـاب🍷⚝',
+                    title: 'التفعيلات',
                     sections: [
                       {
-                        title: '✦🍷الالعاب🍷⚝',
-                        highlight_label: 'الالعاب',
+                        title: 'التفعيلات',
+                        highlight_label: 'تفعيلات',
                         rows: [
    {
                             header: 'محرج😳',
@@ -164,11 +164,11 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
                 },
 {
               name: "quick_reply",
-              buttonParamsJson: '{"display_text":"افتح.","id":"message"}'
+              buttonParamsJson: '{"display_text":".افتح مضاداللينكات2","id":"message"}'
             },
      {
                name: "cta_url",
-               buttonParamsJson: '{"display_text":"❄️قـنـاتـنـا❄️","url":"https://whatsapp.com/channel/0029VaBYsLZ3bbUxdfN7u841","merchant_url":"https://whatsapp.com/channel/0029VaBYsLZ3bbUxdfN7u841"}'
+               buttonParamsJson: '{"display_text":"قناتي","url":"https://whatsapp.com/channel/0029VaZQ0FG4dTnQxihmuk01"}'
             }
               ]
             }
