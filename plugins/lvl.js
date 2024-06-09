@@ -33,7 +33,7 @@ let str = `
 `.trim()
 try {
 const img = await levelup(teks, user.level)
-conn.sendFile(m.chat, img, 'levelup.jpg', str, m)
+conn.sendFile(m.chat, img, 'menu3.png', str, m)
 } catch (e) {
 m.reply(str)
 }
