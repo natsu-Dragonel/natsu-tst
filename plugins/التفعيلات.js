@@ -4,10 +4,10 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
         message: {
           interactiveMessage: {
             header: {
-              title: '  ✦ ───『 التفعيلات 』─── ⚝'
+              title: '   ─『 التفعيلات 』─ '
             },
             body: {
-              text: 'حدد التفعيل المطلوب\n*مرحبا اليك قأىمه التفعيلات*\n╰──────────⳹'
+              text: 'حدد التفعيل المطلوب\n*مرحبا اليك قأىمه التفعيلات*\n
             },
             nativeFlowMessage: {
               buttons: [
@@ -35,6 +35,10 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 {
                      name: "cta_url",
            buttonParamsJson: '{"display_text":"قناتي","url":"https://whatsapp.com/channel/0029VaZQ0FG4dTnQxihmuk01"}'
+           },
+    {
+        name: "cta_url",
+           buttonParamsJson: '{"display_text":"جروب الدعم","url":"https://chat.whatsapp.com/F8vu51zUa1UD0Y2AyKjWu1"}'
            },
     {
               name: "quick_reply",
