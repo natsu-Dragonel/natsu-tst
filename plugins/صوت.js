@@ -3,7 +3,7 @@ handler.all = async function (m) {
 let chat = global.db.data.chats[m.chat]
 global.db.data.users[m.sender].money += 50
 global.db.data.users[m.sender].exp += 50   
-if (/8855$/i.test(m.text) && chat.audios) {  
+if (/تستتتت$/i.test(m.text) && chat.audios) {  
 if (!db.data.chats[m.chat].audios && m.isGroup) throw 0    
 let vn = './media/ناتسو.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
@@ -11,7 +11,7 @@ this.sendPresenceUpdate('recording', m.chat)
 
 
       
-if (/^88551|88551|88551$/i.test(m.text) && chat.audios) {  
+if (/^تستتت$/i.test(m.text) && chat.audios) {  
 if (!db.data.chats[m.chat].audios && m.isGroup) throw 0    
 let vn = './media/ناتسو.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
