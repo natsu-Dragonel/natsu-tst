@@ -169,6 +169,34 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
      {
                name: "cta_url",
                buttonParamsJson: '{"display_text":"قناتي","url":"https://whatsapp.com/channel/0029VaZQ0FG4dTnQxihmuk01"}'
+            },
+     {
+         name: "quick_reply",
+              buttonParamsJson: '{"display_text":".اقفل مضاداللينكات2","id":"message"}'
+            },
+     {
+          name: "quick_reply",
+              buttonParamsJson: '{"display_text":".افتح مضادالشتائم","id":"message"}'
+            },
+     {
+          name: "quick_reply",
+              buttonParamsJson: '{"display_text":".اقفل مضادالشتائم","id":"message"}'
+            },
+     {
+          name: "quick_reply",
+              buttonParamsJson: '{"display_text":".افتح تقيد","id":"message"}'
+            },
+     {
+          name: "quick_reply",
+              buttonParamsJson: '{"display_text":".اقفل تقيد","id":"message"}'
+           },
+     {
+          name: "quick_reply",
+              buttonParamsJson: '{"display_text":".افتح الصحين","id":"message"}'
+           },
+     {
+          name: "quick_reply",
+              buttonParamsJson: '{"display_text":".اقفل الصحين","id":"message"}'
             }
               ]
             }
