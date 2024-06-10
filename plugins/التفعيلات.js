@@ -37,10 +37,6 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
            buttonParamsJson: '{"display_text":"قناتي","url":"https://whatsapp.com/channel/0029VaZQ0FG4dTnQxihmuk01"}'
            },
     {
-        name: "cta_url",
-           buttonParamsJson: '{"display_text":"جروب الدعم","url":"https://chat.whatsapp.com/F8vu51zUa1UD0Y2AyKjWu1"}'
-           },
-    {
               name: "quick_reply",
               buttonParamsJson: '{"display_text":".افتح مضاداللينكات2","id":"message"}'
             },
@@ -87,6 +83,14 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
      {
           name: "quick_reply",
               buttonParamsJson: '{"display_text":".اقفل مضادالخاص","id":"message"}'
+           },
+     {
+          name: "quick_reply",
+              buttonParamsJson: '{"display_text":".افتح الترحيب","id":"message"}'
+          },
+     {
+          name: "quick_reply",
+              buttonParamsJson: '{"display_text":".اقفل الترحيب","id":"message"}'
             }
               ]
             }
