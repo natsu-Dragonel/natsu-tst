@@ -512,12 +512,6 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
                             title: '.حذف_الالقاب',
                             description: '',
                             id: '.حذف_الالقاب'
-                          },
-                         {
-                            header: 'قائمه الاونلاين',
-                            title: '.المتصلين',
-                            description: '',
-                            id: '.المتصلين' 
                           }
                         ]
                       }
