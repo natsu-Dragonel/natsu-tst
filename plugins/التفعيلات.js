@@ -7,7 +7,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
               title: '   ─『 التفعيلات 』─ '
             },
             body: {
-              text: 'حدد التفعيل المطلوب\n*مرحبا اليك قأىمه التفعيلات*\n
+              text: 'حدد التفعيل المطلوب\n*مرحبا اليك قأىمه التفعيلات*\n'
             },
             nativeFlowMessage: {
               buttons: [
