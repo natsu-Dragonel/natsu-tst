@@ -29,7 +29,7 @@ const handler = async (m, { text, usedPrefix, command }) => {
             m.reply('*❌ حدث خطأ في فك الشفرة. يرجى التأكد من إدخال شفرة العد الثنائي الصحيحة.*');
         }
     } else {
-        m.reply(`*❌ أمر غير معروف. يرجى استخدام ${usedPrefix}تشفير أو ${usedPrefix}فك-شفرة.*`);
+        m.reply(`*❌ أمر غير معروف. يرجى استخدام ${usedPrefix}تشفير أو ${usedPrefix}فك-التشفير.*`);
     }
 }
 
