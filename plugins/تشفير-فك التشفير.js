@@ -33,7 +33,7 @@ const handler = async (m, { text, usedPrefix, command }) => {
     }
 }
 
-handler.command = ['تشفير', 'فك-شفرة'];
+handler.command = ['تشفير', 'فك-التشفير'];
 handler.tags = ['tools'];
 handler.rowner = true
 
