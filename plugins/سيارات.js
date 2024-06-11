@@ -1,34 +1,27 @@
-//كود لعبة السيارات
-//تابع لقنات
-//https://whatsapp.com/channel/0029VaWughjkehEKy41ibw3k
-let timeout = 60000
-let poin = 500
-let handler = async (m, { conn, command, usedPrefix }) => {
-    conn.tebakbendera = conn.tebakbendera ? conn.tebakbendera : {}
-    let id = m.chat
-    if (id in conn.tebakbendera) {
-        conn.reply(m.chat, '❐┃لم يتم الاجابة علي السؤال بعد┃❌ ❯', conn.tebakbendera[id][0])
-        throw false
-    }
-    let src = await (await fetch('https://gist.githubusercontent.com/ggbot564/de6999400bb50eecd7b5f65f67f66786/raw/dd9a5a3cf73fc6bd67c04b3f1a88eea0f049f1db/cars')).json()
-  let json = src[Math.floor(Math.random() * src.length)]
-    let caption = `*${command.toUpperCase()}*
-  ❐↞┇الـوقـت⏳↞ *${(timeout / 1000).toFixed(2)} ┇
- استخدم .انسحب للأنسحاب
-  ❐↞┇الـجـائـزة💰↞ ${poin} نقاط┇
-『𝑁𝐴𝑇𝑺𝑈-bot』
-     `.trim()
-    conn.tebakbendera[id] = [
-        await conn.sendFile(m.chat, json.img, '', caption, m),
-        json, poin,
-        setTimeout(() => {
-            if (conn.tebakbendera[id]) conn.reply(m.chat, `❮ ⌛┇انتهي الوقت┇⌛❯\n❐↞┇الاجـابـة✅↞ ${json.name}*┇`, conn.tebakbendera[id][0])
-            delete conn.tebakbendera[id]
-        }, timeout)
-    ]
-}
-handler.help = ['سيارات']
-handler.tags = ['new']
-handler.command = /^سيارات/i
 
-export default handler
+
+import _0xc5dcb2 from "node-fetch";
+const handler = async (_0x5321d9, {
+  conn: _0x35ee5f,
+  args: _0x3a87c3,
+  usedPrefix: _0x1587d5,
+  command: _0x5403c9
+}) => {
+  let _0x206172 = _0x3a87c3.join(" ").split("|");
+  if (!_0x3a87c3[0]) {
+    throw "يمكنك انشاء شعار لــــ  تصميم6 باسمك مثال :\n\n*.تصميم* 𝑁𝐴𝑇𝑺𝑈|bot";
+  }
+  _0x35ee5f.sendMessage(_0x5321d9.chat, {
+    react: {
+      text: "🕐",
+      key: _0x5321d9.key
+    }
+  });
+  let _0x361d0f = "https://api.betabotz.eu.org/api/photooxy/pubg?text1=" + _0x206172[0] + "&text2=" + _0x206172[1] + "&apikey=6wy2KEG8";
+  _0x35ee5f.sendFile(_0x5321d9.chat, _0x361d0f, "pubg.jpg", "تفضل طلبك ببجي", _0x5321d9, false);
+};
+handler.help = ["pubg"];
+handler.tags = ["logo"];
+handler.command = /^(تصميم)$/i;
+handler.limit = false;
+export default handler;
