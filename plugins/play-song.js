@@ -14,7 +14,6 @@ let handler = async (m, { conn, args, usedPrefix, text, command }) => {
    // if (!lister.includes(feature)) return conn.reply(m.chat, `*🚩 Ingresa el formato en que deseas descargar más el titulo de un video o musica de YouTube.*\n\nEjemplo : ${usedPrefix + command} *mp3* SUICIDAL-IDOL - ecstacy\n\nFormatos disponibles :\n${usedPrefix + command} *mp3*\n${usedPrefix + command} *mp3doc*\n${usedPrefix + command} *mp4*\n${usedPrefix + command} *mp4doc*`,  m, fake,)
           if (command == "اغنيه" || command == 'play2') {
             if (!text) return conn.reply(m.chat, `*🚩 أدخل عنوان مقطع فيديو أو موسيقى*`,  m)
-    await m.react('🕓')
     var res = await yts(text)
     var vid = res.videos[0]
     var q = '128kbps'
