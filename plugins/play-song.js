@@ -7,7 +7,7 @@ let handler = async (m, { conn, usedPrefix, args, command, text }) => {
   m.reply('*الرجاء الانتظار...*');
 
   try {
-    let mediaURL = await zoro(text);
+    let mediaURL = await natsu(text);
 
     if (!mediaURL) throw 'لم يتم العثور على فيديو للرابط المعطى';
 
@@ -21,7 +21,7 @@ async function natsu(text) {
   let res = await fetch(`https://api-me-4ef1b6491458.herokuapp.com/api/tiktok?url=${encodeURIComponent(text)}`);
   if (!res.ok) return false;
 
-  const fileName = 'Natsu_tiktok_video.mp4';
+  const fileName = 'Zoro_tiktok_video.mp4';
   const fileStream = fs.createWriteStream(fileName);
   res.body.pipe(fileStream);
 
