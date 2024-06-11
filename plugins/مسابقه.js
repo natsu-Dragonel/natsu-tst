@@ -1,106 +1,148 @@
+
 import fetch from 'node-fetch';
 
 let points = 50;
-let maxPlayers;
+let maxPlayers = 10;
+let maxQuestions = 50;
+let questionTimeout = 25 * 1000; 
 
-let handler = async (m, { conn, command, text }) => {
+let handler = async (m, { conn, command }) => {
     let id = m.chat;
-    conn.tekateki1 = conn.tekateki1 ? conn.tekateki1 : {};
-
-
-    if (command === "2مسابقه") {
-        if (id in conn.tekateki1) {
-            return conn.reply(m.chat, 'المسابقه شغاله ينجم', conn.tekateki1[id][0]);
-        } else if (!text) {
-            return conn.reply(m.chat, 'ادخل عدد اللاعبين', m);
-        } else if (isNaN(text)) {
-            return conn.reply(m.chat, 'يرجى إدخال رقم لعدد اللاعبين', m);
-        } else if (text > 8 || text < 5) {
-            return conn.reply(m.chat, 'الحد الأقصى للاعبين ثمانية, والحد الأدنى خمسه', m);
-        } else {
-            maxPlayers = text;
+    conn.𝑁𝐴𝑇𝑺𝑈 = conn.𝑁𝐴𝑇𝑺𝑈 ? conn.𝑁𝐴𝑇𝑺𝑈 : {};
+//شرط بدا اللعبه هنبدا هنا تمام
+    if (command === "مسابقه-صور") {
+        if (id in conn.𝑁𝐴𝑇𝑺𝑈) {
+            conn.reply(m.chat, '*المسابقه شغاله حالياً يمكنك المشاركه*', conn.𝑁𝐴𝑇𝑺𝑈[id][0]);
+            throw false;
         }
-        conn.tekateki1[id] = [
-            await conn.reply(m.chat, '1 - جاوب علي السوأل بسرعه\n2 - جمع  50 نقطه\n3 - اتبع التعليمات', m), [], [], 0
+
+        conn.𝑁𝐴𝑇𝑺𝑈[id] = [
+            await conn.reply(m.chat, '┐┈┈┈〈 *💕 مـسـابـقـه صـور 🌃* 〉┈┈┈◆\n │╮┈┈┈┈┈┈┈┈┈┈┈┈⩺ـ\n┴│🔥⩺ ¹ جاوب علي السوال \nقبل اي احد\n│🔥⩺ ² منشن الرساله عشان تتحسب النقطه\n┬│🔥⩺  ³ السوال الواحد ب 50 نقطه\n│╯┈┈┈┈┈┈┈┈┈┈┈┈⩺ـ\n┘┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈⩺ـ', m), [], [], 0, 0, null
         ];
 
-        conn.reply(m.chat, `🎡| المسابقة بدأت، يمكن لـ ${maxPlayers} لاعبين الانضمام. اكتب " .انضمام" للانضمام `, m);
+        conn.reply(m.chat, '*المسابقه تم تفعيلها استخدم .انضم-صور للانضمام للمسابقه*', m);
         throw false;
-    } else if (command === "انضمام") {
-        if (!(id in conn.tekateki1)) {
-            throw conn.reply(m.chat, 'لا يوجد مسابقة قائمة حالياً!', m);
-        } 
-
-        if (conn.tekateki1[id][2].length >= maxPlayers) {
-            throw conn.reply(m.chat, 'اكتمل العدد', m);;
+      //زرار الانضمام
+    } else if (command === "انضم-صور") {
+        if (!(id in conn.𝑁𝐴𝑇𝑺𝑈)) {
+            conn.reply(m.chat, '*المعذره لايوجد مسابقه حالياً*', m);
+            throw false;
         }
 
-        if (conn.tekateki1[id][2].findIndex(player => player.id === m.sender) !== -1) {
-            throw conn.reply(m.chat, 'أنت مسجل بالفعل', m);
+        if (conn.𝑁𝐴𝑇𝑺𝑈[id][2].length >= maxPlayers) {
+            conn.reply(m.chat, '*المعذره العدد مكتمل*', m);
+            throw false;
         }
 
-        conn.tekateki1[id][2].push({ id: m.sender, points: 0 });
-        conn.reply(m.chat, 'تم التسجيل بنجاح!', m);
-
-        if (conn.tekateki1[id][2].length >= maxPlayers) {
-            let tekateki1 = await (await fetch(`https://raw.githubusercontent.com/miku-655/-/main/dd.json`)).json();
-            let json = tekateki1[Math.floor(Math.random() * tekateki1.length)];
-            conn.tekateki1[id][1] = json;
-            let playersList = conn.tekateki1[id][2].map((player, i) => `${i + 1} - @${player.id.split('@')[0]} [${player.points} نقطة]`).join('\n');
-            let question = `السؤال: ${json.question}`;//\n\n${playersList}
-            conn.reply(m.chat, question, m);
+        if (conn.𝑁𝐴𝑇𝑺𝑈[id][2].findIndex(player => player.id === m.sender) !== -1) {
+            conn.reply(m.chat, '*لقد قمت بلتسجيل مسبقاً*', m);
+            throw false;
         }
-    } else if (command === "2حذف-مسابقه") {
-        if (!conn.tekateki1[id]) {
-            conn.reply(m.chat, 'لـم تـبـدأ الـمـبـاره بـعـد', m);
+
+        conn.𝑁𝐴𝑇𝑺𝑈[id][2].push({ id: m.sender, points: 0, correctAnswers: 0 });
+        conn.reply(m.chat, `تـم الـتـسـجـيـل بـنـجـاح\nتـبـقـي للـانـضـمـام: ${maxPlayers - conn.𝑁𝐴𝑇𝑺𝑈[id][2].length}`, m);
+//وقفنا هنا تمام
+        if (conn.𝑁𝐴𝑇𝑺𝑈[id][2].length >= 2) {
+            let 𝑁𝐴𝑇𝑺𝑈 = await (await fetch(`https://raw.githubusercontent.com/DK3MK/worker-bot/main/guess.json`)).json();
+            let json = 𝑁𝐴𝑇𝑺𝑈[Math.floor(Math.random() * 𝑁𝐴𝑇𝑺𝑈.length)];
+            conn.𝑁𝐴𝑇𝑺𝑈[id][1] = json;
+            let playersList = conn.𝑁𝐴𝑇𝑺𝑈[id][2].map((player, i) => `${i + 1} - @${player.id.split('@')[0]} [${player.points} نقطة]`).join('\n');
+            let caption = `┐┈┈┈〈 *📍 مـسـابـقـه صـور 📍* 〉┈┈┈◆
+*•🔢 رقـم الـسـوال ${conn.𝑁𝐴𝑇𝑺𝑈[id][4] + 1}*
+*•🔥 اجب بسرعه قبل اي شخص اخر*
+*•💰 الجائزة:* ⌊ ${points} ⌉ *نقطة* , \`لكل جواب صحيح\`
+╯──────────────────⟢ـ`.trim()
+            conn.sendFile(m.chat, json.img, '', caption, m)
+//لضبط الوقت
+            conn.𝑁𝐴𝑇𝑺𝑈[id][5] = setTimeout(() => {
+                conn.reply(m.chat, `*•┇❖↞الوقت أنتهي الاجابه هي┇⏳❯*\n ${json.name}\n╯──────────────────⟢ـ`, conn.𝑁𝐴𝑇𝑺𝑈[id][0]);
+                clearTimeout(conn.𝑁𝐴𝑇𝑺𝑈[id][5]);
+                conn.𝑁𝐴𝑇𝑺𝑈[id][5] = null;
+
+                setTimeout(async () => {
+                    let newJson = 𝑁𝐴𝑇𝑺𝑈[Math.floor(Math.random() * 𝑁𝐴𝑇𝑺𝑈.length)];
+                    conn.𝑁𝐴𝑇𝑺𝑈[id][1] = newJson;
+                    conn.𝑁𝐴𝑇𝑺𝑈[id][3]++;
+                    conn.𝑁𝐴𝑇𝑺𝑈[id][4]++;
+
+                    let newCaption = `┐┈┈┈〈 *📍 مـسـابـقـه صـور 📍* 〉┈┈┈◆
+*•🔢 رقـم الـسـوال ${conn.𝑁𝐴𝑇𝑺𝑈[id][4] + 1}*
+*•🔥 اجب بسرعه قبل اي شخص اخر*
+*•💰 الجائزة:* ⌊ ${points} ⌉ *نقطة* , \`لكل جواب صحيح\`
+╯──────────────────⟢ـ`.trim()
+                    conn.sendFile(m.chat, newJson.img, '', newCaption, m)
+                }, 1000); 
+            }, questionTimeout);
+        }//شرط الحذق
+    } else if (command === "حذف-صور") {
+        if (!conn.𝑁𝐴𝑇𝑺𝑈[id]) {
+            conn.reply(m.chat, '*لا يوجد احد قام بتشغيل المسابقه*', m);
         } else {
-            delete conn.tekateki1[id];
-            conn.reply(m.chat, 'تـم حـذف الـلـعـبـه بـنـجـاح', m);
+            clearTimeout(conn.𝑁𝐴𝑇𝑺𝑈[id][5]); 
+            delete conn.𝑁𝐴𝑇𝑺𝑈[id];
+            conn.reply(m.chat, '*تم الغاء مسابقه صور بنجاح*', m);
         }
     }
 };
 
 handler.before = async function (m, { conn }) {
-  let id = m.chat;
-  this.tekateki1 = this.tekateki1 ? this.tekateki1 : {};
+    let id = m.chat;
+    this.𝑁𝐴𝑇𝑺𝑈 = this.𝑁𝐴𝑇𝑺𝑈 ? this.𝑁𝐴𝑇𝑺𝑈 : {};
 
-  if (!(id in this.tekateki1)) return;
+    if (!(id in this.𝑁𝐴𝑇𝑺𝑈)) return;
 
-  let json = this.tekateki1[id][1];
-  let players = this.tekateki1[id][2];
-  let questionCount = this.tekateki1[id][3];
+    let json = this.𝑁𝐴𝑇𝑺𝑈[id][1];
+    let players = this.𝑁𝐴𝑇𝑺𝑈[id][2];
+    let questionCount = this.𝑁𝐴𝑇𝑺𝑈[id][3];
 
-  if (json && json.response && m.text.toLowerCase() === json.response.toLowerCase()) {
-      let playerIndex = players.findIndex(player => player.id === m.sender);
-      players[playerIndex].points += points;
-      questionCount++;
+    if (json && json.name && m.text.toLowerCase() === json.name.toLowerCase()) {
+        clearTimeout(this.𝑁𝐴𝑇𝑺𝑈[id][5]); // Clear timeout
+        let playerIndex = players.findIndex(player => player.id === m.sender);
+        players[playerIndex].points += points;
+        players[playerIndex].correctAnswers++;
+        questionCount++;
 
-      if (players.length === 2) {
-          let winner = players[playerIndex];
-          this.reply(m.chat, `المسابقة انتهت! الفائز هو @${winner.id.split('@')[0]} بـ ${winner.points} نقطة.`, m, { mentions: [winner.id] });
-          delete this.tekateki1[id];
-      } else {
-          // إرسال قائمة باللاعبين المتبقين
-          let playersList = players.map((player, i) => `${i + 1} - @${player.id.split('@')[0]} [${player.points} نقطة]`).join('\n');
-          this.reply(m.chat, `@${m.sender.split('@')[0]} أجاب بشكل صحيح! يمكنه الآن استبعاد لاعب عن طريق كتابة "#" متبوعًا برقم ترتيب اللاعب.\n\nاللاعبون المتبقون:\n\n${playersList}`, m, { mentions: conn.parseMention(playersList) });
-      }
-  } else if (m.text.startsWith("#") && players.length > 2) {
-      let playerIndex = parseInt(m.text.replace("#", "")) - 1;
-      if (playerIndex < players.length && playerIndex !== players.findIndex(player => player.id === m.sender)) {
-          players.splice(playerIndex, 1);
-          let playersList = players.map((player, i) => `${i + 1} - @${player.id.split('@')[0]} [${player.points} نقطة]`).join('\n');
-          this.reply(m.chat, `تم استبعاد اللاعب. اللاعبون المتبقون:\n\n${playersList}`, m, { mentions: conn.parseMention(playersList) });
-          let tekateki1 = await (await fetch(`https://raw.githubusercontent.com/miku-655/-/main/dd.json`)).json();
-          json = tekateki1[Math.floor(Math.random() * tekateki1.length)];
-          this.tekateki1[id][1] = json;
-          let question = `السؤال: ${json.question}`;
-          conn.reply(m.chat, question, m);
-      } else {
-          conn.reply(m.chat, 'رقم اللاعب غير صحيح أو حاولت استبعاد نفسك', m);
-      }
-  }
+        if (questionCount >= maxQuestions) {
+            let sortedPlayers = players.sort((a, b) => b.points - a.points);
+            let playersList = sortedPlayers.map((player, i) => `${i + 1} - @${player.id.split('@')[0]} [${player.points} نقطة, ${player.correctAnswers} من إجابات صحيحه]`).join('\n');
+            this.reply(m.chat, `لـقـد انـتـهـت الـمـسـابـقـه\nالـيـك لـوحـه الـصـاداره:\n\n${playersList}`, m, { mentions: conn.parseMention(playersList) });
+            delete this.𝑁𝐴𝑇𝑺𝑈[id];
+        } else {
+            let 𝑁𝐴𝑇𝑺𝑈 = await (await fetch(`https://raw.githubusercontent.com/DK3MK/worker-bot/main/guess.json`)).json();
+            json = 𝑁𝐴𝑇𝑺𝑈[Math.floor(Math.random() * 𝑁𝐴𝑇𝑺𝑈.length)];
+            this.𝑁𝐴𝑇𝑺𝑈[id][1] = json;
+            this.𝑁𝐴𝑇𝑺𝑈[id][3] = questionCount;
+            this.𝑁𝐴𝑇𝑺𝑈[id][4]++;
+            let playersList = players.map((player, i) => `${i + 1} - @${player.id.split('@')[0]} [${player.points} نقطة, ${player.correctAnswers} إجابات صحيحة]`).join('\n');
+            let caption = `┐┈┈┈〈 *📍 مـسـابـقـه صـور 📍* 〉┈┈┈◆
+*•🔢 رقـم الـسـوال ${this.𝑁𝐴𝑇𝑺𝑈[id][4] + 1}*
+*•🔥 اجب بسرعه قبل اي شخص اخر*
+*•💰 الجائزة:* ⌊ ${points} ⌉ *نقطة* , \`لكل جواب صحيح\`
+╯──────────────────⟢ـ`.trim()
+            this.sendFile(m.chat, json.img, '', caption, m)
+
+ 
+            this.𝑁𝐴𝑇𝑺𝑈[id][5] = setTimeout(() => {
+                this.reply(m.chat, `*•┇❖↞الوقت أنتهي الاجابه هي┇⏳❯*\n ${json.name}\n╯──────────────────⟢ـ`, this.𝑁𝐴𝑇𝑺𝑈[id][0]);
+                clearTimeout(this.𝑁𝐴𝑇𝑺𝑈[id][5]);
+                this.𝑁𝐴𝑇𝑺𝑈[id][5] = null;
+
+                setTimeout(async () => {
+                    let newJson = 𝑁𝐴𝑇𝑺𝑈[Math.floor(Math.random() * 𝑁𝐴𝑇𝑺𝑈.length)];
+                    this.𝑁𝐴𝑇𝑺𝑈[id][1] = newJson;
+                    this.𝑁𝐴𝑇𝑺𝑈[id][3]++;
+                    this.𝑁𝐴𝑇𝑺𝑈[id][4]++;
+//تكرار الشروط مهمه
+                    let newCaption = `┐┈┈┈〈 *📍 مـسـابـقـه صـور 📍* 〉┈┈┈◆
+*•🔢 رقـم الـسـوال ${this.itachixvi[id][4] + 1}*
+*•🔥 اجب بسرعه قبل اي شخص اخر*
+*•💰 الجائزة:* ⌊ ${points} ⌉ *نقطة* , \`لكل جواب صحيح\`╯──────────────────⟢ـ`.trim()
+                    this.sendFile(m.chat, newJson.img, '', newCaption, m)
+                }, 1000); 
+            }, questionTimeout);
+        }
+    }
 };
-
-handler.command = /^(مسابقه2|انضمام2|2حذف-مسابقه)$/i;
+handler.command = /^(مسابقه-صور|انضم-صور|حذف-صور)$/i;
 
 export default handler;
