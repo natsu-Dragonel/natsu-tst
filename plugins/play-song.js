@@ -29,7 +29,7 @@ const texto1 = `اغــنيــههة 乂 يـوتـيـوب\n
 await conn.sendButton(m.chat, texto1, wm, res.videos[0].thumbnail, [
         ['الصوت 🎙', `${usedPrefix}mp3 ${text}`],
         ['الفيديو 🎥', `${usedPrefix}mp4 ${text}`]
-  ], null, [['قناتي ⚡', `https://whatsapp.com/channel/0029VaZQ0FG4dTnQxihmuk01`]], m)
+  ], null, [['♥قناتي♥', `https://whatsapp.com/channel/0029VaZQ0FG4dTnQxihmuk01`]], m)
           }
 
             if (command == "mp3") {
@@ -83,7 +83,7 @@ thumbnail: await (await fetch(vid.thumbnail)).buffer()}}}, { quoted: m })
 
         if (command == "mp4") {
             if (!text) return conn.reply(m.chat, `*🚩 أدخل عنوان مقطع فيديو أو موسيقى*`, m)
-    await m.react('🕓')
+    await m.react('⌚')
     let res = await yts(text)
     let vid = res.videos[0]
     let q = '360p'
@@ -98,7 +98,7 @@ thumbnail: await (await fetch(vid.thumbnail)).buffer()}}}, { quoted: m })
 await conn.sendButton(m.chat, wm, texto1, res.videos[0].thumbnail, [
         ['Creador', `${usedPrefix}creador`],
         ['Menu', `${usedPrefix}menu`]
-  ], null, [['قناتي ⚡', `${channel}`]], m)
+  ], null, [['♥قناتي♥', `${channel}`]], m)
        */
        try {
        let yt = await fg.ytv(vid.url, q)
@@ -126,7 +126,7 @@ if (size.split('MB')[0] >= limit) return conn.reply(m.chat,` الملف أكثر
 
     if (command == "mp3doc") {
             if (!inputs) return conn.reply(m.chat, `*🚩 أدخل عنوان مقطع فيديو أو موسيقى*`,  m)
-    await m.react('🕓')
+    await m.react('⌚')
     let res = await yts(text)
     let vid = res.videos[0]
     let q = '128kbps'
@@ -187,7 +187,7 @@ thumbnail: await (await fetch(vid.thumbnail)).buffer()}}}, { quoted: m })
 
     if (command == "mp4doc") {
             if (!inputs) return conn.reply(m.chat, `*🚩 أدخل عنوان مقطع فيديو أو موسيقى*`, m)
-    await m.react('🕓')
+    await m.react('⌚')
     let res = await yts(text)
     let vid = res.videos[0]
     let q = '360p'
@@ -202,7 +202,7 @@ thumbnail: await (await fetch(vid.thumbnail)).buffer()}}}, { quoted: m })
 await conn.sendButton(m.chat, wm, texto1, res.videos[0].thumbnail, [
         ['Creador', `${usedPrefix}creador`],
         ['Menu', `${usedPrefix}menu`]
-  ], null, [['قناتي ⚡', `${channel}`]], m)
+  ], null, [['♥قناتي♥', `${channel}`]], m)
   */
 
        try {
