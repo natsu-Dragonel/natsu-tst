@@ -1432,8 +1432,8 @@ if (chat.welcome) {
                   ppgp = await this.profilePictureUrl(id, 'image');
                 } catch (error) {
                   console.error(`حدث خطأ أثناء استرداد الصورة الشخصية: ${error}`);
-                  pp = 'https://telegra.ph/file/9742a853212c447ca62c7.png'; // Assign default image URL
-                  ppgp = 'https://telegra.ph/file/9742a853212c447ca62c7.png'; // Assign default image URL
+                  pp = 'https://telegra.ph/file/21c09f6973055938c80f9.jpg'; // Assign default image URL
+                  ppgp = 'https://telegra.ph/file/21c09f6973055938c80f9.jpg'; // Assign default image URL
                 } finally {
                   let text = (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user')
                     .replace('@group', await this.getName(id))
@@ -1474,8 +1474,8 @@ if (chat.welcome) {
                   ppgp = await this.profilePictureUrl(id, 'image');
                 } catch (error) {
                   console.error(`حدث خطأ أثناء استرداد الصورة الشخصية: ${error}`);
-                  pp = 'https://telegra.ph/file/9742a853212c447ca62c7.png'; // Assign default image URL
-                  ppgp = 'https://telegra.ph/file/9742a853212c447ca62c7.png'; // Assign default image URL
+                  pp = 'https://telegra.ph/file/21c09f6973055938c80f9.jpg'; // Assign default image URL
+                  ppgp = 'https://telegra.ph/file/21c09f6973055938c80f9.jpg'; // Assign default image URL
                 } finally {
                   let text = (chat.sBye || this.bye || conn.bye || 'اهلا, @user')
                     .replace('@user', '@' + user.split('@')[0]);
@@ -1484,7 +1484,7 @@ if (chat.welcome) {
                   let secondText = `وداعا, رقم ${nthMember}عضونا`;
           
                   let leaveApiUrl = `https://api.popcat.xyz/welcomecard?background=${encodeURIComponent(
-                    'https://telegra.ph/file/9742a853212c447ca62c7.png'
+                    'https://telegra.ph/file/919c9aa59b8dc5cae41a8.png'
                   )}&text1=${encodeURIComponent(
                     await this.getName(user)
                   )}&text2=الي+القاء&text3=عدد+الاعضاء:${encodeURIComponent(
