@@ -18,7 +18,7 @@ const handler = async (m, { command, usedPrefix, conn, text }) => {
   const tradutor = _translate.plugins.descargas_play_v2;
   device = await getDevice(m.key.id);
 
-  if (!text) throw `${tradutor.texto1[0]} _${usedPrefix + command} ${tradutor.texto1[1]} _${usedPrefix + command} https://youtu.be/JLWRZ8eWyZo?si=EmeS9fJvS_OkDk7p_`;
+  if (!text) throw `${tradutor.texto1[0]} _${usedPrefix + command} ${tradutor.texto1[1]} _${usedPrefix + command} https://youtu.be/EL0fMyPAJvU?si=4LVSmY5cnlzEe70c`;
   if (command === 'شغل' && (device == 'desktop' || device == 'web')) throw `*[❗] الازرار ليست متاحه على المواقع افتح هاتفك لتظهر.*`;
   if (enviando) return;
   enviando = true;
@@ -171,7 +171,7 @@ const handler = async (m, { command, usedPrefix, conn, text }) => {
   }
 };
 
-handler.command = /^(play.1|play.2|شغل)$/i;
+handler.command = /^(شغل)$/i;
 export default handler;
 
 async function isValidYouTubeLink(link) {
