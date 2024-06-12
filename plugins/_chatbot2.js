@@ -18,7 +18,7 @@ let handler = m => m
  } 
   
  if (/^يورتشي|يوريتشي$/i.test(m.text) ) { //sem prefixo 
-     conn.reply(m.chat, `*صديق زيريف الروح بالروح🫶❤*`, m) //wm, null, [['Menu', '#menu']], m) botones :V 
+     conn.reply(m.chat, `*قلب زيريف من جوا🫶❤*`, m) //wm, null, [['Menu', '#menu']], m) botones :V 
   
  } 
   
