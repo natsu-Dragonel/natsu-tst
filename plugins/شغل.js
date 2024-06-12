@@ -29,7 +29,7 @@ const handler = async (m, { command, usedPrefix, conn, text }) => {
   const tradutor = _translate.plugins.descargas_play_v2;
   device = await getDevice(m.key.id);
 
-  if (!text) throw `${tradutor.texto1[0]} _${usedPrefix + command} ${tradutor.texto1[1]} _${usedPrefix + command} https://www.youtube.com/watch?v=EL0fMyPAJvU`;
+  if (!text) throw `${tradutor.texto1[0]} _${usedPrefix + command} ${tradutor.texto1[1]} _${usedPrefix + command} https://www.youtube.com/watch?v=EL0fMyPAJvU_`;
   if (command === 'شغل' && (device == 'desktop' || device == 'web')) throw `*[❗] Los mensajes de botones aun no estan disponibles en WhatsApp web, acceda a su celular para poder ver y usar los mensajes con botones.*`;
   if (enviando) return;
   enviando = true;
