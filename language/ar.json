@@ -542,8 +542,8 @@
         },
         "descargas_play_v2": {
             "texto1": [
-                "_*< DESCARGAS - PLAY v2 />*_\n\n*[ ℹ️ ] ينقص عنوان فيديو YouTube.*\n\n*[ 💡 ] مثال:*",
-                "Good Feeling - Flo Rida_\n\n*[ 💡 ] Exemplo 2:*"
+                "_*< DESCARGAS - PLAY v2 />*_\n\n*[ ℹ️ ] ينقص عنوان فيديو شغل.*\n\n*[ 💡 ] مثال:*",
+                "كالقمر رشاد كمبال_\n\n*[ 💡 ] مثال 2:*"
             ],
             "texto2": "_*< DESCARGAS - PLAY V2 />*_\n\n*[ ℹ️ ] حدث خطأ. يرجى المحاولة مرة أخرى في وقت لاحق.*",
             "texto3": "_*< DESCARGAS - PLAY V2 />*_\n\n*[ ℹ️ ] حدث خطأ. يرجى المحاولة مرة أخرى في وقت لاحق.*",
