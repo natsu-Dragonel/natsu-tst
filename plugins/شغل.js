@@ -1,7 +1,7 @@
 /*
 
 - Agradecimiento a la comunidad de "WSApp • Developers"
- 
+ * https://chat.whatsapp.com/FaQunmlp9BmDRk6lEEc9FJ
 - Agradecimiento especial a Carlos (PT) por los codigos de interactiveMessage (botones)
 - Agradecimiento a Darlyn1234 por la estructura de uso en este codigo y quoted
  * https://github.com/darlyn1234
@@ -29,7 +29,7 @@ const handler = async (m, { command, usedPrefix, conn, text }) => {
   const tradutor = _translate.plugins.descargas_play_v2;
   device = await getDevice(m.key.id);
 
-  if (!text) throw `${tradutor.texto1[0]} _${usedPrefix + command} ${tradutor.texto1[1]} _${usedPrefix + command} https://www.youtube.com/watch?v=EL0fMyPAJvU;
+  if (!text) throw `${tradutor.texto1[0]} _${usedPrefix + command} ${tradutor.texto1[1]} _${usedPrefix + command}https://www.youtube.com/watch?v=EL0fMyPAJvU`;
   if (command === 'شغل' && (device == 'desktop' || device == 'web')) throw `*[❗] Los mensajes de botones aun no estan disponibles en WhatsApp web, acceda a su celular para poder ver y usar los mensajes con botones.*`;
   if (enviando) return;
   enviando = true;
@@ -60,10 +60,16 @@ const handler = async (m, { command, usedPrefix, conn, text }) => {
 
     if (!success) {
       enviando = false;
-      throw `${tradutor.texto2}`;
+      throw `_*< DESCARGAS - PLAY v2 />*_
+
+*[ ℹ️ ] ينقص عنوان فيديو YouTube.*
+
+*[ 💡 ] مثال:* _.شغل كالقمر رشاد كمبال
+
+*[ 💡 ] مثال 2:* _.شغل https://www.youtube.com/watch?v=EL0fMyPAJvU`;
     }
 
-    const dataMessage = `${tradutor.texto4[0]} ${data.resultado.title}\n${tradutor.texto4[1]} ${data.resultado.publicDate}\n${tradutor.texto4[2]} ${data.resultado.channel}\n${tradutor.texto4[3]} ${data.resultado.url}`.trim();  
+    const dataMessage = `العنوان : ${data.resultado.title}\nتاريخ النشر : ${data.resultado.publicDate}\nالقناه : ${data.resultado.channel}\nرابط القناه : ${data.resultado.url}`.trim();  
     if (!text.includes('SN@') && command !== 'شغل') await conn.sendMessage(m.chat, { text: dataMessage }, { quoted: m });      
       
     if (command === 'شغل') {
@@ -73,7 +79,7 @@ const handler = async (m, { command, usedPrefix, conn, text }) => {
               message: {
                   interactiveMessage: {
                       body: { text: dataMessage },
-                      footer: { text: `${global.wm}`.trim() },
+                      footer: { text: `©${global.wm}`.trim() },
                       header: {
                           hasMediaAttachment: true,
                           imageMessage: messa.imageMessage,
@@ -83,14 +89,14 @@ const handler = async (m, { command, usedPrefix, conn, text }) => {
                               {
                                   name: 'quick_reply',
                                   buttonParamsJson: JSON.stringify({
-                                      display_text: 'صوت',
+                                      display_text: 'الصوت🎧',
                                       id: `${usedPrefix}play.1 ${data.resultado.url} SN@`
                                   })
                               },
                               {
                                   name: 'quick_reply',
                                   buttonParamsJson: JSON.stringify({
-                                      display_text: 'فيديو',
+                                      display_text: 'الفيديو📽️',
                                       id: `${usedPrefix}play.2 ${data.resultado.url} SN@`
                                   })
                               },   
@@ -131,7 +137,7 @@ const handler = async (m, { command, usedPrefix, conn, text }) => {
 
         if (!success2) {
           enviando = false;
-          throw `${tradutor.texto3}`;
+          throw `تم بنجاح ٣`;
         }
       } else if (command === 'play.2') {
         let apiUrls22 = [
@@ -159,13 +165,13 @@ const handler = async (m, { command, usedPrefix, conn, text }) => {
 
         if (!success2) {
           enviando = false;
-          throw `${tradutor.texto3}`;
+          throw `تم بنجاح ٢`;
         }
       }
     } catch (ee) {
       console.log(ee.message)  
       enviando = false;
-      throw `${tradutor.texto3}`;
+      throw `لوج`;
     }
 
     if (buff) {
@@ -173,16 +179,16 @@ const handler = async (m, { command, usedPrefix, conn, text }) => {
       enviando = false;
     } else {
       enviando = false;
-      throw `${tradutor.texto5}`;
+      throw `ت٥`;
     }
   } catch (error) {
     console.log(error);  
     enviando = false;
-    throw tradutor.texto6;
+    throw اريرور;
   }
 };
 
-handler.command = /^(play.1|play.2|شغل)$/i;
+handler.command = /^(play.1|play.2|playyt)$/i;
 export default handler;
 
 async function isValidYouTubeLink(link) {
