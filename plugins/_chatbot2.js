@@ -8,17 +8,17 @@ let handler = m => m
  } 
   
  if (/^الحمدلله$/i.test(m.text) ) { //sem prefixo 
-     conn.reply(m.chat, ` ادام الله حمدك `, m) //wm, null, [['Menu', '#menu']], m) botones :V 
+     conn.reply(m.chat, `ادام الله حمدك`, m) //wm, null, [['Menu', '#menu']], m) botones :V 
   
  } 
   
  if (/^منور$/i.test(m.text) ) { //sem prefixo 
-     conn.reply(m.chat, `  بنوري طبعا `, m) //wm, null, [['Menu', '#menu']], m) botones :V 
+     conn.reply(m.chat, `بنوري طبعا`, m) //wm, null, [['Menu', '#menu']], m) botones :V 
   
  } 
   
  if (/^يورتشي|يوريتشي$/i.test(m.text) ) { //sem prefixo 
-     conn.reply(m.chat, `*صديق زيريف الروح بالروح🫶❤*, `, m) //wm, null, [['Menu', '#menu']], m) botones :V 
+     conn.reply(m.chat, `*صديق زيريف الروح بالروح🫶❤*`, m) //wm, null, [['Menu', '#menu']], m) botones :V 
   
  } 
   
@@ -39,27 +39,27 @@ let handler = m => m
   
   
  if (/^ملل|مللل|ملللل$/i.test(m.text) ) { //sem prefixo 
-     conn.reply(m.chat, ` عارفين ف اسكت `, m) //wm, null, [['Menu', '#menu']], m) botones :V 
+     conn.reply(m.chat, `عارفين ف اسكت`, m) //wm, null, [['Menu', '#menu']], m) botones :V 
   
  } 
   
  if (/^السلام عليكم$/i.test(m.text) ) { //sem prefixo 
-     conn.reply(m.chat, ` وعليكم السلام `, m) //wm, null, [['Menu', '#menu']], m) botones :V 
+     conn.reply(m.chat, `وعليكم السلام`, m) //wm, null, [['Menu', '#menu']], m) botones :V 
   
  } 
   
  if (/^تصبح علي خير|تصبحوا علي خير/i.test(m.text) ) { //sem prefixo 
-     conn.reply(m.chat, ` وانت من اهل الخير 🫶❤ `, m) //wm, null, [['Menu', '#menu']], m) botones :V 
+     conn.reply(m.chat, `وانت من اهل الخير 🫶❤`, m) //wm, null, [['Menu', '#menu']], m) botones :V 
   
  }  
   
  if (/^احبك ناتسو$/i.test(m.text) ) { //sem prefixo 
-     conn.reply(m.chat, ` انا اكتر ✨🥹💜 `, m) //wm, null, [['Menu', '#menu']], m) botones :V 
+     conn.reply(m.chat, `انا اكتر ✨🥹💜`, m) //wm, null, [['Menu', '#menu']], m) botones :V 
   
  } 
      
  if (/^🐦$/i.test(m.text) ) { //sem prefixo 
-     conn.reply(m.chat, ` انظر بعيد `, m) //wm, null, [['Menu', '#menu']], m) botones :V 
+     conn.reply(m.chat, `😑انظر بعيد`, m) //wm, null, [['Menu', '#menu']], m) botones :V 
   
  } 
   
@@ -74,7 +74,7 @@ let handler = m => m
  } 
   
  if (/^كيفك|عامل ايه$/i.test(m.text) ) { //sem prefixo 
-     conn.reply(m.chat, ` الحمد لله و انت`, m) //wm, null, [['Menu', '#menu']], m) botones :V 
+     conn.reply(m.chat, `الحمد لله و انت عامل اي`, m) //wm, null, [['Menu', '#menu']], m) botones :V 
   
  } 
  return !0 } 
