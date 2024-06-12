@@ -4,7 +4,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
         message: {
           interactiveMessage: {
             header: {
-              title: '*⌘──〘 ♥📃اوامـر الـمـطـور📃♥ 〙── ⌘*'
+              title: '*⌘──〘 👑اوامـر الـمـطـور👑 〙── ⌘*'
             },
             body: {
               text: '*♥☺️مرحبا بك يا مطوري زيريف اتمنى ان تكون بخير☺️♥*'
@@ -18,7 +18,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
                     sections: [
                       {
                         title:'الـاوامـر',
-                        highlight_label: 'اوامر البوت',
+                        highlight_label: '👑اوامر المطور👑',
                         rows: [
                               {
                            header: 'عشان تضيف لحد اكس بي',
@@ -109,6 +109,12 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
                             title: '.ضيف_جواهر',
                             description: '',
                             id: '.ضيف_جواهر'
+                          },
+                          {
+                            header: '☠️لتصفيه جروب☠️',
+                            title: '☠️بحذر☠️',
+                            description: 'خطر',
+                            id: '.هاك'
                                  }
                         ]
                       }
