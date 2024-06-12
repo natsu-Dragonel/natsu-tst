@@ -1,3 +1,14 @@
+/*
+
+- Agradecimiento a la comunidad de "WSApp • Developers"
+ 
+- Agradecimiento especial a Carlos (PT) por los codigos de interactiveMessage (botones)
+- Agradecimiento a Darlyn1234 por la estructura de uso en este codigo y quoted
+ * https://github.com/darlyn1234
+- Adaptacion de imagen en tipo lista, codigo y funcionamiento por BrunoSobrino
+ * https://github.com/BrunoSobrino
+
+*/
 import fetch from 'node-fetch';
 import { prepareWAMessageMedia, generateWAMessageFromContent, getDevice } from '@whiskeysockets/baileys';
 
@@ -18,8 +29,8 @@ const handler = async (m, { command, usedPrefix, conn, text }) => {
   const tradutor = _translate.plugins.descargas_play_v2;
   device = await getDevice(m.key.id);
 
-  if (!text) throw `${tradutor.texto1[0]} _${usedPrefix + command} ${tradutor.texto1[1]} _${usedPrefix + command} https://youtu.be/EL0fMyPAJvU?si=4LVSmY5cnlzEe70c`;
-  if (command === 'شغل' && (device == 'desktop' || device == 'web')) throw `*[❗] الازرار ليست متاحه على المواقع افتح هاتفك لتظهر.*`;
+  if (!text) throw `${tradutor.texto1[0]} _${usedPrefix + command} ${tradutor.texto1[1]} _${usedPrefix + command} https://www.youtube.com/watch?v=EL0fMyPAJvU;
+  if (command === 'شغل' && (device == 'desktop' || device == 'web')) throw `*[❗] Los mensajes de botones aun no estan disponibles en WhatsApp web, acceda a su celular para poder ver y usar los mensajes con botones.*`;
   if (enviando) return;
   enviando = true;
 
@@ -171,7 +182,7 @@ const handler = async (m, { command, usedPrefix, conn, text }) => {
   }
 };
 
-handler.command = /^(شغل)$/i;
+handler.command = /^(play.1|play.2|شغل)$/i;
 export default handler;
 
 async function isValidYouTubeLink(link) {
