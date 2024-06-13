@@ -9,7 +9,7 @@ let handler = async (m, { conn }) => {
         ];  
 
         let stiker = await sticker(null, s[Math.floor(Math.random() * s.length)], nombre, nombre2);
-        await conn.sendFile(m.chat, stiker, null, { asSticker: true, quoted: m });
+        await conn.sendFile(m.chat, stiker, null, { asSticker: true, quoted: m }); // استخدام { quoted: m }
     } catch (e) {
         console.error(e);
         await conn.reply(m.chat, 'حدث خطأ أثناء محاولة إرسال الملصق.', m);
