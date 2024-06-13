@@ -8,8 +8,15 @@ let handler = async (m, { conn }) => {
             'https://telegra.ph/file/784a05acc195cdb35ca29.jpg',
         ];  
 
-        let stiker = await sticker(null, s[Math.floor(Math.random() * s.length)], nombre, nombre2);
-        await conn.sendFile(m.chat, stiker, null, { asSticker: true, quoted: m }); // استخدام { quoted: m }
+        // تحقق مما إذا كانت الرسالة تحتوي على النص "كسمك"
+        if (m.text && m.text.includes('كسمك')) {
+            let stiker = await sticker(null, s[Math.floor(Math.random() * s.length)], nombre, nombre2);
+            await conn.sendFile(m.chat, stiker, null, { asSticker: true, quoted: m });
+        } else {
+            // لا تفعل شيئًا إذا لم تحتوي الرسالة على "كسمك"
+            return; // يمكنك إضافة رد أو إجراءات إضافية هنا إذا لزم الأمر
+        }
+        
     } catch (e) {
         console.error(e);
         await conn.reply(m.chat, 'حدث خطأ أثناء محاولة إرسال الملصق.', m);
