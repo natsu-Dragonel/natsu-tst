@@ -11,7 +11,8 @@ let handler = async (m, { conn }) => {
         // تحقق مما إذا كانت الرسالة تحتوي على النص "كسمك"
         if (m.text && m.text.includes('كسمك')) {
             let stiker = await sticker(null, s[Math.floor(Math.random() * s.length)], nombre, nombre2);
-            await conn.sendFile(m.chat, stiker, null, { asSticker: true, quoted: m });
+            // إرسال الملصق مع منشن للشخص المرسل
+            await conn.sendFile(m.chat, stiker, null, { asSticker: true, quoted: m, mentions: [m.sender] });
         } else {
             // لا تفعل شيئًا إذا لم تحتوي الرسالة على "كسمك"
             return; // يمكنك إضافة رد أو إجراءات إضافية هنا إذا لزم الأمر
