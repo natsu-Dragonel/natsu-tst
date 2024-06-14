@@ -24,8 +24,7 @@ let handler = async (m, { conn }) => {
 };
 
 handler.customPrefix = /كسمك/i;
-handler.command = new RegExp; 
-@${m.sender.split
+handler.command = new RegExp;
 handler.exp = 50;
 
 export default handler;
