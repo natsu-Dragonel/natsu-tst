@@ -2,9 +2,6 @@ import { sticker } from '../lib/sticker.js';
 
 let handler = async (m, { conn }) => {
     try {
-    let user = global.db.data.users[m.sender];
-    let name = conn.getName(m.sender);
-    let taguser = '@' + m.sender.split("@s.whatsapp.net")[0];
         let nombre = '𝑁𝐴𝑇𝑆𝑈';
         let nombre2 = '𝑁𝐴𝑇𝑆𝑈';
         const s = [
@@ -27,7 +24,8 @@ let handler = async (m, { conn }) => {
 };
 
 handler.customPrefix = /كسمك/i;
-handler.command = new RegExp;
+handler.command = new RegExp; 
+@${m.sender.split
 handler.exp = 50;
 
 export default handler;
