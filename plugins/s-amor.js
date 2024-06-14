@@ -2,6 +2,9 @@ import { sticker } from '../lib/sticker.js';
 
 let handler = async (m, { conn }) => {
     try {
+    let user = global.db.data.users[m.sender];
+    let name = conn.getName(m.sender);
+    let taguser = '@' + m.sender.split("@s.whatsapp.net")[0];
         let nombre = '𝑁𝐴𝑇𝑆𝑈';
         let nombre2 = '𝑁𝐴𝑇𝑆𝑈';
         const s = [
