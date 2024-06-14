@@ -1,27 +1,31 @@
-const handler = async (m, {conn, text, usedPrefix, command}) => {
-  if (!text) return m.reply(`*منشن الشخص الي عايز تخليه يكتب نص وهمي*\n\n*${usedPrefix + command}* مرحبا @${m.sender.split`@`[0]} كيف الاخبار`, null, {mentions: [m.sender]});
-  const cm = copy(m);
-  let who;
-  if (text.includes('@0')) who = '0@s.whatsapp.net';
-  else if (m.isGroup) who = cm.participant = m.mentionedJid[0];
-  else who = m.chat;
-  if (!who) return m.reply(`*منشن الشخص الي عايز تخليه يكتب نص وهمي*\n\n*${usedPrefix + command}* مرحبا @${m.sender.split`@`[0]} كيف الاخبار`, null, {mentions: [m.sender]});
-  cm.key.fromMe = false;
-  cm.message[m.mtype] = copy(m.msg);
-  const sp = '@' + who.split`@`[0];
-  const [fake, ...real] = text.split(sp);
-  conn.fakeReply(m.chat, real.join(sp).trimStart(), who, fake.trimEnd(), m.isGroup ? m.chat : false, {
-    contextInfo: {
-      mentionedJid: conn.parseMention(real.join(sp).trim()),
-    },
-  });
+import { sticker } from '../lib/sticker.js';
+
+let handler = async (m, { conn }) => {
+    try {
+        let nombre = '𝑁𝐴𝑇𝑆𝑈';
+        let nombre2 = '𝑁𝐴𝑇𝑆𝑈';
+        const s = [
+            'https://telegra.ph/file/784a05acc195cdb35ca29.jpg',
+        ];  
+
+        // تحقق مما إذا كانت الرسالة تحتوي على النص "كسمك"
+        if (m.text && m.text.includes('كسمك')) {
+            let stiker = await sticker(null, s[Math.floor(Math.random() * s.length)], nombre, nombre2);
+            await conn.sendFile(m.chat, stiker, null, { asSticker: true, quoted: m });
+        } else {
+            // لا تفعل شيئًا إذا لم تحتوي الرسالة على "كسمك"
+            return; // يمكنك إضافة رد أو إجراءات إضافية هنا إذا لزم الأمر
+        }
+        
+    } catch (e) {
+        console.error(e);
+        await conn.reply(m.chat, 'حدث خطأ أثناء محاولة إرسال الملصق.', m);
+    }
 };
-handler.help = ['وهمي'];
-handler.tags = ['JoAnimi'];
-handler.command = /^(وهمي)$/;
+
+handler.customPrefix = /كسمك/i;
+handler.command = new RegExp; 
+@${m.sender.split
+handler.exp = 50;
 
 export default handler;
-
-function copy(obj) {
-  return JSON.parse(JSON.stringify(obj));
-}
