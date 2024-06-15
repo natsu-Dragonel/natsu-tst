@@ -5,7 +5,7 @@ let handler = async (m, { conn }) => {
         let nombre = '𝑁𝐴𝑇𝑆𝑈';
         let nombre2 = '𝑁𝐴𝑇𝑆𝑈';
         const s = [
-            'https://telegra.ph/file/784a05acc195cdb35ca29.jpg',
+            '',
         ];  
 
         // تحقق مما إذا كانت الرسالة تحتوي على النص "كسمك"
